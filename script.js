@@ -6,7 +6,7 @@ var number = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var special = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "~", "?", ">", "<", ":", ";", "[", "{", "]", "}"];
 
 // this variable sets the final user password
-var userChar = [];
+var userPass = [];
 
 // query selector ties into the id=generate in the html. This allows the generate button to function. 
 var generateBtn = document.querySelector("#generate");
@@ -45,32 +45,32 @@ function generatePassword() {
   var num = confirm("Do you want to add numbers?");
   var spec = confirm("Do you want to add special characters?");
 
-// these if functions combine the userChar array with the global arrays.
+// these if functions combine the userPass array with the global arrays.
   if (lower) {
-    userChar = userChar.concat(lowLetter);
+    userPass = userPass.concat(lowLetter);
     
   }
   
   if (upper) {
-    userChar = userChar.concat(upLetter);
+    userPass = userPass.concat(upLetter);
   
   }
   
   if (num) {
-    userChar = userChar.concat(number);
+    userPass = userPass.concat(number);
   
   }
   
   if (spec) {
-    userChar = userChar.concat(special);
+    userPass = userPass.concat(special);
   }
 }
 // this creates a new string, which is blank - to be populated by the random generator. 
   var securePass = "";
 // this for loop is the randomizer for the generator, and creates the password. 
     for (i = 0; i < passwordLength; i++) {
-      var index = Math.floor(Math.random() * userChar.length);
-      securePass += userChar[index];
+      var index = Math.floor(Math.random() * userPass.length);
+      securePass += userPass[index];
     }
     // this populates the securePass string created above, and is the final password that is generated. 
 return securePass;
